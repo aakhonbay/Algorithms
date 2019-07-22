@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find Outlier</title>
+</head>
+<body>
+    <h1 id="h1">Find Outlier</h1>
+</body>
+<script>
+
+let value = 'hello';
+let result = function findOutlier(integers){
+    let oddCounter = 0;
+    let evenCounter = 0;
+    let oddIndex = null;
+    let evenIndex = null;
+  for (let i = 0; i <= integers.length; i++) {
+    // Even
+    if (integers[i] % 2 ==  0) {
+      evenCounter++;
+      evenIndex = i;
+      test = true;
+    }
+    // Odd
+    if (integers[i] % 2 > 0) {
+      oddCounter++;
+      oddIndex = i;
+    }
+    // Odd N
+    if (evenCounter >= 2 && oddCounter == 1) {
+        return integers[oddIndex];
+        break;
+    }
+    // Even N  
+    if (oddCounter >= 2 && evenCounter == 1) {
+        return integers[evenIndex];
+        break;
+    }
+  }
+}
+let el = document.getElementById('h1');
+let resultValue = result([1,1,0,1,1])
+el.innerHTML = resultValue;
+console.log(resultValue)
+
+</script>
+</html>
