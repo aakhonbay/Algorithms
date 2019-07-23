@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find the divisors!</title>
+</head>
+<body>
+    <h1 id="h1">Find the divisors!</h1>
+</body>
+<script>
+/**
+Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string '(integer) is prime'.
+*/
+
+function divisors(num) {
+  let arr = [];
+  for (let i = num-1; i > 1; i--) {
+    let operation = num/i;
+    let fraction = operation - Math.floor(operation);
+    if (!fraction) {
+      arr.push(operation);
+    }
+    
+  }
+  let prime = num/num;
+  if (arr.length == 0 && prime == 1) {
+    return `${num} is prime`;
+  }
+  return arr;
+}
+let result = divisors(13);
+console.log(result)
+let el = document.getElementById('h1');
+el.innerHTML = result;
+</script>
+</html>
